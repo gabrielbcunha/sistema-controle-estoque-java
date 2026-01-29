@@ -41,6 +41,24 @@ public class Produto {
         return quantidade;
     }
 
+    void adicionarEstoque(int quantidade){
+        if(quantidade <= 0){
+            throw new IllegalArgumentException("Quantidade deve ser positiva");
+        }else {
+            this.quantidade += quantidade;
+        }
+    }
+
+    void removerEstoque(int quantidade){
+        if(quantidade <= 0){
+            throw new IllegalArgumentException("Quantidade deve ser positiva");
+        }else if(this.quantidade < quantidade){
+            throw new IllegalArgumentException("Não existe estoque suficiente");
+        }else {
+            this.quantidade -= quantidade;
+        }
+    }
+
     @Override
     public String toString() {
         return "[Id:"+ getId() +" | Nome: " + getNome() + " | Preço:" + getPreco() + " | Quantidade: " + getQuantidade() + "]";
