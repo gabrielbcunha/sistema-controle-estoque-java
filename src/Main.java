@@ -13,6 +13,7 @@ public class Main {
             System.out.println("2 - Remover Produto");
             System.out.println("3 - Listar Produtos");
             System.out.println("4 - Procurar Produto por Id");
+            System.out.println("5 - Modificar Quantidade de Produto por Id");
             System.out.println("0 - Sair");
             int opcao = sc.nextInt();
             sc.nextLine();
@@ -67,6 +68,55 @@ public class Main {
                         System.out.println("Produto encontrado com sucesso! " + produtoProcurado);
                     }else  {
                         System.out.println("Produto não encontrado!");
+                    }
+                break;
+                case 5:
+                    System.out.println("Digite o id do produto a ser modificado: ");
+                    int idModificado = sc.nextInt();
+                    sc.nextLine();
+                    Produto produtoModificado = estoque.buscarProdutoId(idModificado);
+                    if(produtoModificado == null) {
+                        System.out.println("Produto não encontrado!");
+                        break;
+                    }else{
+                        System.out.println("Produto encontrado com sucesso!\n" + produtoModificado + "\n ------------------------------");
+                        System.out.println("Selecione a operação");
+                        System.out.println("1 - Adicionar quantidade de Produto");
+                        System.out.println("2 - Remover quantidade de Produto");
+                        System.out.println("0 - Cancelar operação");
+                        int escolhaModificado = sc.nextInt();
+                        sc.nextLine();
+                        switch (escolhaModificado) {
+                            case 1:
+                                try {
+                                    System.out.println("Digite a quantidade a ser adicionada: ");
+                                    int quantidadeAdicionada = sc.nextInt();
+                                    sc.nextLine();
+                                    estoque.adicionarEstoque(produtoModificado.getId(), quantidadeAdicionada);
+                                    System.out.println("Produto adicionado com sucesso!\n" + produtoModificado);
+                                    break;
+                                }catch(IllegalArgumentException e) {
+                                    System.out.println(e.getMessage());
+                                    break;
+                                }
+                            case 2:
+                                try {
+                                    System.out.println("Digite a quantidade a ser removido: ");
+                                    int quantidadeRemovida = sc.nextInt();
+                                    sc.nextLine();
+                                    estoque.removerEstoque(produtoModificado.getId(), quantidadeRemovida);
+                                    System.out.println("Produto adicionado com sucesso!\n" + produtoModificado);
+                                    break;
+                                } catch(IllegalArgumentException e) {
+                                    System.out.println(e.getMessage());
+                                }
+                            case 0:
+                                System.out.println("Operação não realizada!");
+                                break;
+                            default:
+                                System.out.println("Insira uma opção válida");
+                            break;
+                        }
                     }
                 break;
                 case 0:
