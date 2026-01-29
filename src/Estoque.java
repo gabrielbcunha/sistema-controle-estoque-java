@@ -33,4 +33,24 @@ public class Estoque {
         }
         return null;
     }
+
+    public boolean adicionarEstoque(int id, int quantidade){
+        Produto alvo = buscarProdutoId(id);
+        if(alvo != null){
+            alvo.adicionarEstoque(quantidade);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean removerEstoque(int id, int quantidade){
+        Produto alvo = buscarProdutoId(id);
+        if(alvo != null){
+            alvo.removerEstoque(quantidade);
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
