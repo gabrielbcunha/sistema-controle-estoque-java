@@ -22,10 +22,12 @@ Projeto em Java desenvolvido para praticar **lógica de programação** e **Prog
 - `Main`: menu e interação com o usuário via `Scanner`
 
 Estrutura de pastas:
+```bash
 src/
 ├── Main.java
 ├── Estoque.java
 └── Produto.java
+```
 
 ## Tecnologias e conceitos
 - Java
