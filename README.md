@@ -7,6 +7,7 @@ Projeto em Java desenvolvido para praticar **lógica de programação** e **Prog
 - Remover produto por ID
 - Listar produtos cadastrados
 - Buscar produto por ID
+- Entrada e saída de estoque de produto por ID (adição e remoção de quantidade)
 
 ## Regras e validações
 - ID do produto é **imutável** e gerado pelo sistema
@@ -14,7 +15,9 @@ Projeto em Java desenvolvido para praticar **lógica de programação** e **Prog
   - nome vazio
   - preço negativo
   - quantidade negativa
+  - saída de estoque maior do que a quantidade disponível
 - Operações por ID retornam mensagem de “não encontrado” quando o produto não existe
+
 
 ## Estrutura do projeto
 - `Produto`: representa os dados do produto e valida o estado do objeto
@@ -46,4 +49,3 @@ Dentro da pasta do projeto:
 ```bash
 javac src/*.java
 java -cp src Main
-
