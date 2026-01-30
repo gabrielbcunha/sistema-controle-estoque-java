@@ -101,11 +101,11 @@ public class Main {
                                 }
                             case 2:
                                 try {
-                                    System.out.println("Digite a quantidade a ser removido: ");
+                                    System.out.println("Digite a quantidade a ser removida: ");
                                     int quantidadeRemovida = sc.nextInt();
                                     sc.nextLine();
                                     estoque.removerEstoque(produtoModificado.getId(), quantidadeRemovida);
-                                    System.out.println("Produto adicionado com sucesso!\n" + produtoModificado);
+                                    System.out.println("Produto removido com sucesso!\n" + produtoModificado);
                                     break;
                                 } catch(IllegalArgumentException e) {
                                     System.out.println(e.getMessage());
